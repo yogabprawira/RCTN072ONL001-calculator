@@ -1,0 +1,178 @@
+<html>
+
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-md-6">
+      <h1 class="text-center">Calculator</h1>
+    </div>
+    <div class="row col-6">
+        <h2 id="result"></h2>
+    </div>
+    <div class="row col-6">
+      <div class="btn-group" role="group">
+        <div class="d-grid col-3">
+          <button id="ac-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">AC</button>
+        </div>
+        <div class="d-grid col-3">
+          <button id="ce-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">CE</button>
+        </div>
+        <div class="d-grid col-3 ">
+          <button id="divide-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">/</button>
+        </div>
+        <div class="d-grid col-3">
+          <button id="multiply-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">*</button>
+        </div>
+      </div>
+    </div>
+    <div class="row col-6">
+      <div class="btn-group" role="group">
+        <div class="d-grid col-3">
+          <button id="7-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">7</button>
+        </div>
+        <div class="d-grid col-3">
+          <button id="8-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">8</button>
+        </div>
+        <div class="d-grid col-3 ">
+          <button id="9-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">9</button>
+        </div>
+        <div class="d-grid col-3">
+          <button id="subtract-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">-</button>
+        </div>
+      </div>
+    </div>
+    <div class="row col-6">
+      <div class="btn-group" role="group">
+        <div class="d-grid col-3">
+          <button id="4-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">4</button>
+        </div>
+        <div class="d-grid col-3">
+          <button id="5-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">5</button>
+        </div>
+        <div class="d-grid col-3 ">
+          <button id="6-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">6</button>
+        </div>
+        <div class="d-grid col-3">
+          <button id="add-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="row col-6">
+      <div class="btn-group" role="group">
+        <div class="d-grid col-3">
+          <button id="1-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">1</button>
+        </div>
+        <div class="d-grid col-3">
+          <button id="2-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">2</button>
+        </div>
+        <div class="d-grid col-3 ">
+          <button id="3-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">3</button>
+        </div>
+        <div class="d-grid col-3">
+          <button id="equal-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">=</button>
+        </div>
+      </div>
+    </div>
+    <div class="row col-6">
+      <div class="btn-group" role="group">
+        <div class="d-grid col-6">
+          <button id="0-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">0</button>
+        </div>
+        <div class="d-grid col-6">
+          <button id="dot-button" type="button" class="btn btn-outline-secondary p-5 rounded-0">.</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+<script src="javascripts/operation.js"></script>
+<script>
+  let result = document.getElementById('result');
+
+  document.getElementById('ac-button').onclick = (event) => {
+      result.textContent = '';
+  };
+
+  document.getElementById('ce-button').onclick = (event) => {
+      const resultLength = result.textContent.length
+      result.textContent = result.textContent.slice(0, -1)
+  }
+
+  document.getElementById('divide-button').onclick = (event) => {
+      result.textContent += '/'
+  }
+
+  document.getElementById('multiply-button').onclick = (event) => {
+      result.textContent += '*'
+  }
+
+  document.getElementById('7-button').onclick = (event) => {
+      result.textContent += '7'
+  }
+
+  document.getElementById('8-button').onclick = (event) => {
+      result.textContent += '8'
+  }
+
+  document.getElementById('9-button').onclick = (event) => {
+      result.textContent += '9'
+  }
+
+  document.getElementById('4-button').onclick = (event) => {
+      result.textContent += '4'
+  }
+
+  document.getElementById('5-button').onclick = (event) => {
+      result.textContent += '5'
+  }
+
+  document.getElementById('6-button').onclick = (event) => {
+      result.textContent += '6'
+  }
+
+  document.getElementById('1-button').onclick = (event) => {
+    result.textContent += '1'
+  }
+
+  document.getElementById('2-button').onclick = (event) => {
+    result.textContent += '2'
+  }
+
+  document.getElementById('3-button').onclick = (event) => {
+    result.textContent += '3'
+  }
+
+  document.getElementById('subtract-button').onclick = (event) => {
+    result.textContent += '-'
+  }
+
+  document.getElementById('add-button').onclick = (event) => {
+    result.textContent += '+'
+  }
+
+  document.getElementById('0-button').onclick = (event) => {
+    result.textContent += '0'
+  }
+
+  document.getElementById('dot-button').onclick = (event) => {
+    result.textContent += '.'
+  }
+
+  document.getElementById('equal-button').onclick = (event) => {
+    const calculationResult = calculate(result.textContent)
+    result.textContent += '=' + calculationResult.toString()
+  }
+
+
+
+
+</script>
+
+</html>
